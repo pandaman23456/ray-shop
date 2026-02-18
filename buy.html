@@ -7,35 +7,32 @@
 </head>
 <body>
 
-    <header>
-        <h1>구매 페이지</h1>
-    </header>
+<section class="main">
+    <h2>상품 구매</h2>
 
-    <section class="main">
-        <h2>상품 구매</h2>
-        <p>여기에 결제 정보가 들어갑니다.</p>
+    <form id="orderForm">
+        <input type="text" name="name" placeholder="이름" required><br><br>
+        <input type="text" name="phone" placeholder="전화번호" required><br><br>
+        <input type="text" name="address" placeholder="주소" required><br><br>
+        <button type="submit">결제하기</button>
+    </form>
+</section>
 
-        <form action="https://script.google.com/macros/s/AKfycbxAbq2oGWif-ldBsCskhItlAjVxnrvjyFxwNn50-4x0ofzIc2R3ctHUgenTqoImmX-uyQ/exec" method="POST">
-            <input type="text" name="name" placeholder="이름" required><br><br>
-            <input type="text" name="phone" placeholder="전화번호뒤 4자리" required><br><br>
-            <input type="text" name="address" placeholder="디코 아이디" required><br><br>
-            <button type="submit">결제하기</button>
-        </form>
-        <div style="background:#f1f1f1; padding:20px; margin-top:20px; border-radius:10px;">
-            <h3>무통장 입금 안내</h3>
-            <p>은행: 국민은행</p>
-            <p>계좌번호: 123-456-789012</p>
-            <p>예금주: 홍길동</p>
-        <p><strong>입금자명은 이름 + 전화번호 뒤4자리로 해주세요.</strong></p>
-</div>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxAbq2oGWif-ldBsCskhItlAjVxnrvjyFxwNn50-4x0ofzIc2R3ctHUgenTqoImmX-uyQ/exec";
 
-    </section>
+document.getElementById("orderForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+
+    fetch(scriptURL, { method: "POST", body: formData })
+    .then(response => {
+        window.location.href = "complete.html";
+    })
+    .catch(error => alert("에러 발생"));
+});
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
