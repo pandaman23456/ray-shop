@@ -39,9 +39,13 @@ document.getElementById("orderForm").addEventListener("submit", function(e){
     .then(response => {
         window.location.href = "complete.html";
     })
-    .catch(error => alert("에러 발생"));
+    .catch(error => {
+    console.error(error);
+    alert("에러: " + error);
 });
+
 </script>
 
 </body>
 </html>
+
