@@ -30,26 +30,28 @@
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbxAbq2oGWif-ldBsCskhItlAjVxnrvjyFxwNn50-4x0ofzIc2R3ctHUgenTqoImmX-uyQ/exec";
 
-document.getElementById("orderForm").addEventListener("submit", function(e){
+document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
-    
+
     const formData = new FormData(this);
 
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
+    fetch(scriptURL, {
+        method: "POST",
+        body: formData
+    })
+    .then(function(response) {
+        return response.text();
+    })
+    .then(function(data) {
+        console.log("서버 응답:", data);
         window.location.href = "complete.html";
     })
-    .catch(error => {
-        console.error(error);
+    .catch(function(error) {
+        console.error("에러:", error);
         alert("에러 발생");
     });
-
+});
 </script>
 
 </body>
 </html>
-
-
-
-
