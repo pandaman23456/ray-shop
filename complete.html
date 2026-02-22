@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>주문 완료</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>주문 완료</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.box {
+    border: 1px solid #ddd;
+    display: inline-block;
+    padding: 40px;
+    border-radius: 10px;
+}
+.home-btn {
+    margin-top: 20px;
+    padding: 8px 15px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-<section class="main">
-    <h2>🎉 주문이 접수되었습니다!</h2>
+<div class="box">
+    <h2>✅ 주문이 접수되었습니다</h2>
+    <p>입금 확인 후 디스코드로 연락드립니다.</p>
+    <p>모든 제품은 오후 9시~10시 사이에 배송됩니다.</p>
 
-    <br>
-    <a href="index.html">
-        <button>홈으로 돌아가기</button>
-    </a>
-</section>
+    <button class="home-btn" onclick="goHome()">홈으로 돌아가기</button>
+</div>
+
+<script>
+function goHome() {
+    window.location.href = "index.html";
+}
+</script>
 
 </body>
 </html>
+
 
