@@ -3,25 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <title>구매하기</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
 .account-box {
     background: #f2f2f2;
     padding: 15px;
-    margin-bottom: 20px;
+    margin: 20px auto;
+    width: 300px;
     border-radius: 8px;
 }
+
 .warning {
     color: red;
     font-size: 14px;
+}
+
+form {
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<section class="main">
 <h2>🛒 상품 구매</h2>
 
 <div class="account-box">
@@ -61,11 +70,21 @@ pattern="[0-9]{4}" maxlength="4" required><br><br>
 <button type="submit">결제하기</button>
 
 </form>
-</section>
 
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbw3nO7QNklkRFIrGIm85QIUwwi3IM38go9G90ZvBbDm5J2x_GEvJZofwUaox-S6FHGTnQ/exec";
 
+/* 🔥 자동 상품 선택 */
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const product = params.get("product");
+
+    if (product) {
+        document.querySelector("select[name='product']").value = product;
+    }
+};
+
+/* 🔥 주문 제출 */
 document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
