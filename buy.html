@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>구매하기</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .account-box {
-            background: #f2f2f2;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        .warning {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>구매하기</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.account-box {
+    background: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+.warning {
+    color: red;
+    font-size: 14px;
+}
+</style>
 </head>
+
 <body>
 
 <section class="main">
-    <h2>🛒 상품 구매</h2>
+<h2>🛒 상품 구매</h2>
 
-    <!-- 계좌 안내 -->
-    <div class="account-box">
-        <h3>💳 송금 계좌</h3>
-        <p><strong>은행:</strong> 국민은행</p>
-        <p><strong>계좌번호:</strong> 123-456-789012</p>
-        <p><strong>예금주:</strong> 홍길동</p>
-        <p class="warning">※ 송금자명은 이름 + 전화번호뒤4자리 로 입력해주세요.</p>
-    </div>
+<div class="account-box">
+    <h3>💳 송금 계좌</h3>
+    <p><strong>은행:</strong> 국민은행</p>
+    <p><strong>계좌번호:</strong> 123-456-789012</p>
+    <p><strong>예금주:</strong> 홍길동</p>
+    <p class="warning">※ 송금자명은 이름 + 전화번호뒤4자리 로 입력해주세요.</p>
+</div>
 
-    <form id="orderForm">
+<form id="orderForm">
 
-        <input type="text" name="name" placeholder="이름" required><br><br>
+<input type="text" name="name" placeholder="이름" required><br><br>
 
-        <input type="text" name="phone4" placeholder="전화번호 뒤 4자리" 
-               pattern="[0-9]{4}" maxlength="4" required><br><br>
+<input type="text" name="phone4" placeholder="전화번호 뒤 4자리"
+pattern="[0-9]{4}" maxlength="4" required><br><br>
 
-        <input type="text" name="discord" placeholder="디스코드 아이디 (예: user#1234)" required><br><br>
+<input type="text" name="discord" placeholder="디스코드 아이디 (예: user#1234)" required><br><br>
 
-        <select name="product" required>
-            <option value="">제품 선택</option>
-            <option value="1000robux">1000robux</option>
-            <option value="4000robux">4000robux</option>
-            <option value="10000robux">10000robux</option>
-        </select>
-        <br><br>
+<select name="product" required>
+    <option value="">제품 선택</option>
+    <option value="1000robux">1000 Robux</option>
+    <option value="2000robux">2000 Robux</option>
+    <option value="3000robux">3000 Robux</option>
+    <option value="5000robux">5000 Robux</option>
+    <option value="8000robux">8000 Robux</option>
+    <option value="10000robux">10000 Robux</option>
+</select>
+<br><br>
 
-        <label>
-            <input type="checkbox" id="agreeCheck">
-            다시 한번 확인 해주세요. 주문 실수는 책임지지 않습니다.
-        </label>
-        <br><br>
+<label>
+    <input type="checkbox" id="agreeCheck">
+    다시 한번 확인 해주세요. 주문 실수는 책임지지 않습니다.
+</label>
+<br><br>
 
-        <button type="submit">결제하기</button>
-    </form>
+<button type="submit">결제하기</button>
+
+</form>
 </section>
 
 <script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbzyBfVoK-L8fTq2x2jgdXBK9Wt2MMoCKrjy-kGn9_3nyNsvnKC0UA8-OgjGBe6kcFi32Q/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbw3nO7QNklkRFIrGIm85QIUwwi3IM38go9G90ZvBbDm5J2x_GEvJZofwUaox-S6FHGTnQ/exec";
 
 document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const agree = document.getElementById("agreeCheck").checked;
-    if (!agree) {
+    if (!document.getElementById("agreeCheck").checked) {
         alert("주문 동의 체크를 해주세요.");
         return;
     }
@@ -89,6 +93,3 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
 
 </body>
 </html>
-
-
-
